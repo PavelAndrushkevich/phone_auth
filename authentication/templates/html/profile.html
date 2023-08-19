@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    <p>Phone Number: {{ user_profile.phone_number }}</p>
+    <p>My Invite Code: {{ user_profile.invite_code }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="external_invite_code">Enter External Invite Code:</label>
+        <input type="text" id="external_invite_code" name="external_invite_code">
+        <button type="submit">Submit</button>
+    </form>
+    {% if user_profile.activated_invite_code %}
+        <p>Activated Invite Code: {{ user_profile.activated_invite_code }}</p>
+    {% endif %}
+</body>
+</html>
+
+
+
+
